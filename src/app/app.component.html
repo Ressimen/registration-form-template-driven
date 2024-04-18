@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Registration Form</h1>
+  <form (ngSubmit)="onSubmit()" #myForm ="ngForm">
+    <label for="firstname">First Name:</label>
+    <input type ="text" placeholder="First Name" name="firstname" ngModel required #fname="ngModel"><br>
+    <div *ngIf="fname.invalid && fname.touched"><small>First name is required</small></div>
+    <label for="lastname">Last Name:</label>
+    <input type ="text" placeholder="last Name"name="lastname" ngModel required #lname="ngModel"><br>
+    <div *ngIf="lname.invalid && lname.touched">
+    <small>Last name is required</small>
+    </div>
+    <label for="email">Email:</label>
+    <input type ="text" placeholder="email"name="email" ngModel required email #email="ngModel" style="margin-left:40px;"><br>
+    <div *ngIf="email.touched && email.invalid">
+      <small>
+        Email is required
+      </small>
+    </div>
+    <label for="country">Country:</label>
+      <select id="country" name="country" [ngModel]="defaultCountry">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+        <option value="india">India</option>
+      </select><br>
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" value="male" name="gender" ngModel>
+        <label for="male">Male</label>
+        <input type="radio" id="female" value="female"name="gender" ngModel>
+        <label for="female">Female</label><br>      
+      <label for="hobbies">Hobbies:</label>
+      <label for="sports">Sports</label>
+      <input type="checkbox" name="sports" id="sports" name="hobbies" ngModel>
+      <label for="music">Music</label>
+      <input type="checkbox" name="music" id="music" name="hobbies" ngModel>
+      <label for="movies">Movies</label>
+      <input type="checkbox" name="movies" id="movies" name="hobbies" ngModel><br>    
+      <input type="submit" value="Submit" [disabled]="!myForm.valid">
+  </form>
+  <p> A Simple Template Driven Form with validations</p>
+  <p>Used Angular Version 16</p>
+</div>
